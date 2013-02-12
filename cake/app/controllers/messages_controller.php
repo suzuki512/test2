@@ -1,6 +1,6 @@
 <?php
 
-class MessagesController extends AppController {
+class MessagesController extends AppController {//git test用コメント
       
 	var $components = array('Auth');
 	var $uses=array('Message','User');
