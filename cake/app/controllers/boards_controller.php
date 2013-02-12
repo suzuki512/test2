@@ -1,6 +1,7 @@
 <?php
 
-class BoardsController extends AppController {//ああああああああ
+
+class BoardsController extends AppController {//ああああああああaaaaaaaaaaaaaaiooo
 
 	public $scaffold;
 	public $uses=array('Board','Friend');
