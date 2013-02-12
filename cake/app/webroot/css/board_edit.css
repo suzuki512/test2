@@ -1,0 +1,44 @@
+.box{	
+width:500px;
+}
+
+       
+.box label {
+    display:block;
+	float:left;
+	text-align:right;
+	width:154px;
+	font-weight:bold;
+
+}
+
+.box input {
+	float:left;
+    width:300px;
+    padding:4px 2px;
+    font-weight:bold;
+    margin:2px 0 20px 10px;
+}
+
+.box textarea{
+	float:left;
+    width:300px;
+    padding:3px 2px;
+    font-weight:bold;
+    margin:2px 0 20px 10px;
+}
+.box button {
+	float:left;
+    width:100px;
+    padding:3px 2px;
+    font-weight:bold;
+    margin:2px 0 20px 164px;
+}
+div.back{
+	float:left;
+    width:100px;
+    padding:3px 2px;
+    font-weight:bold;
+    margin:2px 0 20px 164px;
+}
+	

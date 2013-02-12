@@ -1,0 +1,12 @@
+
+<?php echo $html->css('side');?>
+<!--サイドバー-->
+<div id ="side">
+<?php echo $html->link('プロフィールを編集する','/profiles/edit'); ?><br>
+<?php echo $html->link('メッセージbox','/messages/box'); ?><br>
+<?php echo $html->link('メッセージ送信履歴','/messages/sent'); ?><br>
+<?php echo $html->link('投稿履歴','/boards/history');?><br>
+<?php echo $html->link('友達一覧','/friends/friendlist');?><br>
+<?php echo $html->link('戻る','/boards'); ?><br>
+</div>
+<div class ="index">Mypage</div>

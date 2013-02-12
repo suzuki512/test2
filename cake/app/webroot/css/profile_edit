@@ -1,0 +1,6 @@
+#formstyle label{
+
+	float:left;
+	display:block;
+}
+ 

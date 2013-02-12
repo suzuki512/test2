@@ -1,0 +1,34 @@
+div.part {
+		width : 1000px;	
+		margin-bottom:10px;
+		float :left;	 
+}
+
+
+div.name{
+		color:green;
+		//float :left;
+} 
+div.body{
+        margin: 10px;	
+	float :left;
+}
+div.date{
+         font-weight:lighter;
+}
+div.pic{
+        float :left;
+}
+div.title{
+        float :left;
+}
+div.clear{
+	float :left;
+}
+
+
+div.text {margin-bottom:20px;
+
+		
+		
+}

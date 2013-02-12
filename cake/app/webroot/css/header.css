@@ -1,0 +1,149 @@
+/*============================================
+全般的なスタイル
+============================================*/
+* {
+	margin:0; padding:0; 	/*全要素のマージン・パディングをリセット*/
+	line-height:1.5;/*全要素の行の高さを1.5倍にする*/
+	color:#333333;		/*文字色*/
+
+} 
+body {
+	background-color:#ffffff;	/*ページ全体の背景色*/
+	text-align:center;		/*IE6以下でセンタリングするための対策*/
+	width:796px; margin:0 auto;	/*内容全体をセンタリング*/
+
+}
+div#pagebody {
+
+	text-align:left;	/*テキストの配置を左揃えにする*/
+	margin-bottom:20px;
+	
+}
+
+/*============================================
+ヘッダ
+============================================*/
+div#header {
+	height:77px;	/*背景画像のサイズに合わせてボックスの高さを指定*/
+	background-color:#ffffff;		/*ヘッダ部分の背景色*/
+	float:left;
+	padding-right:10px;
+
+	
+}
+h1 {	margin-top :5px;
+	padding:0px 0px 0px 0px;		/*見出し内容の位置調整*/
+	font-family:Arial, Helvetica, sans-serif;	/*フォントの種類*/
+	
+}
+h1 a {text-decoration:none;} 			/*リンクの下線を無くす*/
+
+div#login{
+	text-align:left;
+}
+/*============================================
+メインメニュー
+============================================*/
+ul#menu {
+	height:42px; background-color:#eeeeee; font-weight:bold;
+	clear:left;
+
+}
+li#menu01,li#menu02,li#menu03 {
+	float:left;			/*リスト項目を横に並べる*/
+	display:inline;			/*リスト項目をインライン表示にする*/
+	list-style-type:none;		/*リストマーカー無しにする*/
+	background-repeat:no-repeat; 
+	width:164px; height:42px;
+	
+}
+ul#menu a {
+	display:block;				/*リンクをブロック表示にする*/
+	height:33px; padding:4px; text-align:center;
+	text-decoration:none; 			/*リンクの下線を無くす*/
+	font-family:Arial, Helvetica, sans-serif;	/*フォントの種類*/
+	border: 1px solid #c0c0c0;
+}
+
+div#menuB {
+	height:42px; background-color:#b0c4de; font-weight:bold;
+	margin-bottom:50px;
+
+}
+div#search {
+	float:left;	
+	padding:10px;
+	margin:auto;
+}
+div#post{
+	float:right;	
+
+	width:164px; height:40px;
+	border: 1px solid #ABABAB;
+}
+div#post a{	
+	padding:10px;
+	display:block;
+	text-decoration:none; 	
+}
+
+
+
+/*============================================
+サイドバー
+============================================*/
+div#side{
+	width:163px;
+	float:left;
+	border-right:1px solid #c0c0c0;
+	margin-top:5px;
+}
+
+div.content{
+	
+	margin-left: 169px; 
+	padding-left:10px;
+	padding-bottom :20px;
+	margin-bottom:50px;
+	display:block;
+}
+
+div.index{
+	margin-left: 179px; 
+	font-size: 20px;
+	font-weight: 700;
+	border-bottom:1px solid #c0c0c0; 
+	margin-bottom:20px;
+
+}
+#side {		
+	border:1px solid #c0c0c0;
+	display:block;	
+}
+#side li{
+	font-size:90%;	
+	list-style-type:none;	
+}
+#side ul li a {
+	display:block;			/*リンクをブロック表示にする*/
+	padding:2px 0px 2px 20px;	/*サブメニュー項目のパディング*/
+	text-decoration:none;		/*リンクの下線を無くす*/
+}
+#side ul  a:hover {
+	background-color:#eeeeee;	/*リンクにマウスが乗ったら色を変える*/
+}
+/*============================================
+フッター
+============================================*/
+div#footer {
+	height:42px; text-align:center;
+	clear:both;					/*回り込みを解除する*/
+	margin-top:20px;
+	border-top:solid #cccccc 1px;
+}
+address {
+	font-style:normal;			 /*フォントスタイルを標準にする*/
+	font-size:small;			 /*フォントサイズを小さくする*/
+	padding:5px 0px 5px 0px;
+			 /*要素内容の位置調整*/
+}

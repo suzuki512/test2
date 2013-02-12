@@ -1,0 +1,23 @@
+div.pic{	
+	float:left;
+	border:1px solid #c0c0c0;
+}
+div.box{
+	width:622px;
+	margin-top:20px;
+	padding-left:164px;
+}
+
+h2{
+	width:622px;
+	margin-left:164px;
+	padding-bottom:10px;
+	border-bottom:solid #cccccc 1px;
+}
+div.link{
+	clear:right;
+	padding-bottom:10px;
+}
+.box .submit{
+	padding:10px 0px 10px 0px;
+}

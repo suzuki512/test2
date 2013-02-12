@@ -1,0 +1,33 @@
+div.part {
+	width : 776px;
+	margin-bottom:50px;
+	float :left;
+	border:1px solid #cccccc;
+	padding: 10px;
+}
+
+
+div.name{
+	font-size: 100%;	
+}
+div.body{
+    width:638px;
+	clear:left;
+	margin-left:138px;
+}
+		
+div.pic{
+    float :left;
+	margin-right:10px;
+}
+
+div.date{
+    font-weight:lighter;
+}
+div.clear{
+	clear:left;
+}
+
+.part .submit{
+	margin-left:138px;
+}

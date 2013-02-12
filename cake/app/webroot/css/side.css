@@ -1,0 +1,41 @@
+
+div#side{
+	width:163px;
+	float:left;
+	border-right:1px solid #c0c0c0;
+	margin-top:5px;
+}
+
+div.content{
+	
+	margin-left: 169px; 
+	padding-left:10px;
+	padding-bottom :20px;
+	margin-bottom:50px;
+	display:block;
+}
+
+div.index{
+	margin-left: 179px; 
+	font-size: 20px;
+	font-weight: 700;
+	border-bottom:1px solid #c0c0c0; 
+	margin-bottom:20px;
+
+}
+#side {		
+	border:1px solid #c0c0c0;
+	display:block;	
+}
+#side li{
+	font-size:90%;	
+	list-style-type:none;	
+}
+#side ul li a {
+	display:block;			/*リンクをブロック表示にする*/
+	padding:2px 0px 2px 20px;	/*サブメニュー項目のパディング*/
+	text-decoration:none;		/*リンクの下線を無くす*/
+}
+#side ul  a:hover {
+	background-color:#eeeeee;	/*リンクにマウスが乗ったら色を変える*/
+}

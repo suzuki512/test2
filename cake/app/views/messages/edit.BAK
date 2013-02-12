@@ -1,0 +1,18 @@
+<?php echo $this->element('header'); ?>
+<?php echo $this->element('side'); ?>
+<?php echo $this->html('message_edit');?>
+
+<div id ="content">
+<div class ="pic">
+<?php  if(empty($recipient['User']['pic'])){$recipient['User']['pic']="nophoto.jpg";}?>
+<img src='/cake/img/pics/<?php echo $recipient['User']['pic'];?>' alt='プロフィール写真' width="128" height="128">
+</div>
+<div class ="name">
+<?php echo $recipient['User']['username']; ?>
+</div>
+
+<?php echo $form->create(null,array('action'=>'resist')); ?>
+<?php echo $form->textarea('body',array('label' =>'本文','cols'=>40));?>
+<?php echo $form->end('送信'); ?>
+</div>
+<?php echo $this->element('footer'); ?>

@@ -1,0 +1,21 @@
+
+.pic{
+	float:left;
+	padding-right:20px;
+	
+}
+.name{
+	font-weight:600;
+}
+
+.content input{
+	margin-left:148px;
+	margin-top:15px;
+}
+
+.content textarea{
+	margin-top:118px;
+}
+.content .submit input{
+	width:100px;
+}

@@ -1,0 +1,9 @@
+<?php foreach ($sent_friends as $val):?>
+<?php echo $val['frienddata']['username'];?><br>
+		
+<?php  if(empty($val['frienddata']['pic'])){$val['frienddata']['pic']="nophoto.jpg";}?><br>
+<img src ="/cake/img/pics/<?php echo $val['frienddata']['pic'];?>" alt ="<?php echo $val['frienddata']['username'];?>"><br/>
+<a href ="/cake/friends/accept/<?php echo $val['frienddata']['id'];?>">承認する</a><br>
+
+<?php endforeach;?>
+<?php echo $html->link('戻る','/profiles/mypage');?>

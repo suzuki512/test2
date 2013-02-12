@@ -1,0 +1,84 @@
+<?php echo $this->element('header'); ?>
+<?php echo $this->element('side'); ?>
+<?php echo $html->css('board_history');?>
+
+<div class='content'>
+<div id='box'>
+
+<?php foreach ($data as $v): ?>
+  
+  
+
+
+<div class='part'>
+<div class='pic'>
+	<?php  if(empty($v['User']['pic'])){$v['User']['pic']="nophoto.jpg";}?>
+	
+	<img src="/cake/img/pics/<?php echo $v['User']['pic']; ?>" alt="<?php echo $v['User']['username']; ?>" width="128" height="128"><br><!--画像-->
+</div>		
+
+<div class='title'>
+	<a href  =" ../../boards/detail/<?php echo $v['Board']['id'];?>">
+	<?php echo $v['Board']['title']; ?><!--タイトル-->
+</div>
+
+
+<div class='name'>    
+	<a href  = http://localhost/cake/profiles/us/<?php echo $v['User']['id'];?>>
+	
+	<?php echo $v['User']['username']?></a><br><!--名前-->
+
+</div>
+
+<div class ='date'>
+	<?php echo $v['Board']['date']; ?><!--日付-->
+	</div> 
+	
+		
+			
+
+
+<div class="body">
+	<?php echo mb_strimwidth($v['Board']['body'],0,60,".....","utf-8");?><!--本文-->
+</div>
+<div class="submit">
+
+<?php
+	echo $form->create('Board',array('url'=>
+						array(
+						'controller'=>'boards',
+						'action'=>'delete',$v['Board']['id']
+						)
+		     ));
+	
+	$msg = __('削除しますか？', true);
+	echo $form->submit(__('削除する', true), array('name'=>'hoge','onClick'=>"return confirm('$msg')"));
+	echo $form->end();
+
+?>
+
+</div>
+
+</div>
+<?php endforeach; ?>
+
+<div class='clear'>
+
+<?php if(isset($error)&&$error==true){ echo"該当する投稿はありません";}?>
+</div>
+
+
+
+
+
+
+
+<div class="text">
+
+		
+<?php echo $this->Paginator->next('<<前の5件へ');?>
+<?php echo $this->Paginator->prev('次の5件へ>>');?>
+</div>
+</div>
+</div>
+<?php echo $this->element('footer'); ?>

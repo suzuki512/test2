@@ -1,0 +1,69 @@
+<?php echo $this->element('header'); ?>
+
+  
+
+	  
+<?php echo $this->Html->css('board_index');
+print_r($data);?>
+
+  
+  
+
+
+<div class='part'>
+<div class='pic'>
+	<?php  if(empty($data['User']['pic'])){$data['User']['pic']="nophoto.jpg";}?>
+	
+	<img src="/cake/img/pics/<?php echo $data['User']['pic']; ?>" alt="<?php echo $data['User']['username']; ?>" width="128" height="128"><!--画像-->
+</div>		
+
+<div class='title'>
+	<a href  =" ../../cake/boards/detail/<?php echo $data['Board']['id'];?>">
+	<?php echo $data['Board']['title']; ?></a><br><!--タイトル-->
+</div>
+
+
+<div class='name'>    
+	<a href  = http://localhost/cake/profiles/us/<?php echo $data['User']['id'];?>><br>
+	
+	<?php echo $data['User']['username']?></a><br><!--名前-->
+
+</div>
+
+
+<div class ='date'>
+	<?php echo $data['Board']['date']; ?><br><!--日付-->
+	</div> 
+	
+		
+			
+
+
+<div class="body">
+		<?php 
+				$res = str_replace("\n","<br>",$profile['Board']['body']);
+				echo  $res; ?><!--本文-->
+</div>
+
+
+</div>
+
+  <div class='clear'>
+
+<?php if(isset($error)&&$error==true){ echo"該当する投稿はありません";}?></br>
+</div>
+
+
+
+
+
+
+
+<div class="text">
+
+		
+</div>
+</div>
+
+
+<?php echo $this->element('footer'); ?>

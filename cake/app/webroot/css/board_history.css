@@ -1,0 +1,27 @@
+div.part {
+	margin-bottom:50px;
+	border:1px solid #cccccc;
+	padding:10px;
+}
+
+
+div.body{
+    width:638px;
+	clear:left;
+	margin-left:138px;
+}
+div.pic{	
+	margin-right:10px;
+    float :left;
+}
+
+div.date{
+	font-weight:lighter;
+}
+div.clear{
+	clear:left;
+}
+
+h4{
+	margin:10px;
+}

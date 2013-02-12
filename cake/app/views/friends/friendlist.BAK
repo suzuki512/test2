@@ -1,0 +1,63 @@
+<?php echo $this->element('header'); ?>
+<?php echo $this->element('side'); ?>
+<?php echo $html->css('friend_friendlist');?>
+<div id ="content">
+<?php foreach ($sent_friends as $val):?>
+<div id="box">
+
+<?php  if(empty($val['Frienddata']['pic'])){$val['Frienddata']['pic']="nophoto.jpg";}?>
+<div class="pic">
+<img src ="/cake/img/pics/<?php echo $val['Frienddata']['pic'];?>" alt ="<?php echo $val['Frienddata']['username'];?>" width= "128" height="128">
+</div>
+<div class="name">
+<a href ="/cake/profiles/index/<?php echo $val['Frienddata']['id'];?>"><?php echo $val['Frienddata']['username'];?></a> 
+</div>
+<div class="button">
+<?php
+	echo $form->create('Friend',array('url'=>
+						array(
+						'controller'=>'friends',
+						'action'=>'delete',$val['Friend']['id']
+						)
+		     ));
+	
+	$msg = __('友達解除しますか？', true);
+	echo $form->submit(__('解除する', true), array('name'=>'hoge','onClick'=>"return confirm('$msg')"));
+	echo $form->end();
+
+?>
+</div>
+</div>
+<?php endforeach;?>
+
+
+
+<?php foreach ($recieve_friends as $val):?>
+<div id="box">
+
+<?php  if(empty($val['Sender']['pic'])){$val['Sender']['pic']="nophoto.jpg";}?>
+<div class="pic">
+<img src ="/cake/img/pics/<?php echo $val['Sender']['pic'];?>" alt ="<?php echo $val['Sender']['username'];?>" width= "128" height="128"/>
+</div>
+<div class="name">
+<a href ="/cake/profiles/index/<?php echo $val['Sender']['id'];?>"><?php echo $val['Sender']['username'];?></a>
+</div>
+<div class="button">
+<?php
+	echo $form->create('Friend',array('url'=>
+						array(
+						'controller'=>'friends',
+						'action'=>'delete',$val['Friend']['id']
+						)
+		     ));
+	
+	$msg = __('友達解除しますか？', true);
+	echo $form->submit(__('解除する', true), array('name'=>'hoge','onClick'=>"return confirm('$msg')"));
+	echo $form->end();
+
+?>
+</div>
+</div>
+<?php endforeach;?>
+<?php echo $html->link('戻る','/profiles/mypage');?>
+</div>

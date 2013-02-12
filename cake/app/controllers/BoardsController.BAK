@@ -1,0 +1,132 @@
+<?php
+App::uses('AppController', 'Controller');
+class BoardsController extends Controller {
+
+	var $scaffold;
+	 
+	public $helpers = array('Html');//ヘルパー
+	
+	function index(){  
+
+		/*$number=$this->Board->find('count');
+		$profile = $this->Board->read(null, '4');
+print_r($profile);
+		if(!isset($this->params['named']['page'])){
+			$page=1;
+		}
+		else{
+			$page=$this->params['named']['page'];
+		}
+	   $index=($number)-$page*100;
+	   echo $index;
+	   echo $number;*/
+	   
+		    $this->paginate=array(
+		    					'Board' =>
+		    					array(
+									'limit' => 100,
+
+	             					'order' => array('Board.id' => 'desc'),
+	             					       				
+	             				)		
+	        );
+			$data=$this->paginate('Board');
+		$this->set('data', $data);
+	         $tmp_file = $this->data['Board']['pic']['tmp_name'];
+	
+$test=111;
+		$upload_path = "/cake/app/webroot/img/pics/";  
+		  $filename = sprintf("%05d.jpg", $test);
+		       $gif = imagecreatefromgif($tmp_file);
+		         imagegif($gif, $upload_path . $filename, 100);
+		           $this->data['Board']['pic'] = $filename;
+  	}
+  
+	function insert(){  
+		$error=false;
+		$this->autoRender=false;
+		$dt=date('Y-m-d H:i:s');
+		
+		$user_id=$this->Session->read('User.id');// セッション読み込み
+		if($this->request->data['Board']['body']){
+			$resist=array(
+				'Board'=>array(
+					'id'=>null,
+					'user_id'=>$user_id,
+					'body'=>$this->request->data['Board']['body'],
+					'date'=>$dt	
+				)
+			);			//登録条件
+	 		$this->Board->save($resist);//登録
+	 		
+ 		}
+ 		$error=false;
+ 		$this->redirect("http://localhost/cake/boards/");
+	}
+	function search(){  
+		$error=false;
+		$user_id=$this->Session->read('User.id');// セッション読み込み
+		if(!empty($this->data['Board']['search'])){
+		
+		$data=$this->Board->find('all',
+			array(
+    			'conditions' => 
+    				array("Board.body LIKE" => "%{$this->data['Board']['search']}%"),
+    			'order' => 
+    				array('Board.id' => 'desc')
+			)
+		);
+		
+
+		$this->set('data',$data);
+	
+		}
+		if(empty($this->data['Board']['search'])){
+			$this->redirect("http://localhost/cake/boards/");
+		}
+		if(empty($data)){
+			$this->set("error",true);
+		}	
+	}
+	function usersearch(){  
+		$error=false;
+		$user_id=$this->Session->read('User.id');// セッション読み込み
+		if(!empty($this->data['Board']['usersearch'])){
+		
+		$data=$this->Board->find('all',
+			array(
+    			'conditions' => 
+    				array("User.name LIKE" => "%{$this->data['Board']['usersearch']}%"),
+    			'order' => 
+    				array('Board.id' => 'desc')
+			)
+		);
+		
+
+		$this->set('data',$data);
+
+		}
+		if(empty($this->data['Board']['usersearch'])){
+			$this->redirect("http://localhost/cake/boards/");
+		}
+		if(empty($data)){
+			$this->set("error",true);
+		}
+	}		
+	/*function picture() {
+
+	 
+	    if (isset($this->data['Board']['pic'])){
+	      $ext = strtolower(preg_replace("!.*\.!", null, $this->data['Board']['pic']['name']));
+	      $filename = sprintf("%05d.%s",$this->User->id, $ext);3
+	      move_uploaded_file($this->data['Board']['pic']['tmp_name'], APP."webroot/pics".DS.$filename);
+	      $this->data['Board']['pic'] = $filename;
+	    }
+	    if ($this->User->save($this->data['Board'])){
+	      $this->Session->write('sys_msg', 'Your profile has been updated.');
+	      $this->redirect('/users/home/');
+	    }
+
+	}*/
+}
+?>

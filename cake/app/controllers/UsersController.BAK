@@ -1,0 +1,81 @@
+
+<?php
+	//http://book.cakephp.org/ja/compare/453/field
+class UsersController extends AppController {
+	var $scaffold;
+	var $helpers ='html';
+	var $loginerror=false;
+	function index(){
+			$this->User->name ='bbb';
+echo $this->User->field('password');
+	 	$this->autoLayout=false;
+	 print_r($this->User->findByName("suzuki"));
+			$data = $this->User->findByName('suzuki5');
+	 print_r ($data);
+	 $this->set("loginerror");
+	}
+	
+	
+	function login(){	
+	 	$this->autoRender=false;
+		$name=$this->request->data['name'];
+		$password=$this->request->data['password'];
+		if($this->request->data['name']&&$this->request->data['password']){
+		
+	        	$check = $this->User->findByName("$name");//抽出
+	     }   
+			if($this->request->data['password']===$check['User']['password']){
+				
+				$this->Session->write('User.name',$check['User']['name']);//セッション
+				$this->Session->write('User.id',$check['User']['id']);
+				$this->redirect("http://localhost/cake/boards");//リダイレクト
+					
+			} 
+				
+		else{
+			$this->set("loginerror",true);
+			$this->redirect("http://localhost/cake/users/");
+		
+		
+		}
+	}
+	function newresist(){
+		
+		$this->autoRender=false;
+		$name=$this->request->data['name'];
+		$password=$this->request->data['password'];
+		$check=$this->User->findByName("$name");//抽出
+		
+		if(empty($check)&&!empty($name)&&$this->request->data['password']){//登録する項目
+			$dt=date('Y-m-d H:i:s');
+			$resist=array(
+				'User'=>array(
+					'id'=>null,
+					'name'=>$name,
+					'password'=>$password,
+					'date'=>$dt
+				)
+			);			
+		
+		$this->User->save($resist);//登録
+		$condition = array(//抽出条件
+	        	'conditions' => 
+	            	array('User.name' =>$name)
+	    );
+	    $data = $this->User->find('first',$condition);//抽出
+		$this->Session->write('User.id',$data['User']['id']);//セッション
+		$this->Session->write('User.name',$data['User']['name']);
+	
+		$this->redirect("http://localhost/cake/boards");//リダイレクト
+		}
+		else{
+			$this->set("loginerror",true);
+			$this->redirect("http://localhost/cake/users/");
+		}	
+		
+		$this->Render="index";
+		
+	}
+}
+//{$data[0]['user']['name']}
+?>

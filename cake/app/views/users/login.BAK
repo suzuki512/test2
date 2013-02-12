@@ -1,0 +1,31 @@
+<?php echo $this->element('header'); ?>
+<?php echo $html->css('user_login');?>
+<div id = "box">
+<?php
+//if($session->check('Message.auth')) $session->flash('auth');
+echo $form->create('User', array('action' => 'login'));
+echo $form->input('username');
+echo $form->input('password');
+echo $form->end('Login');?>
+
+
+<div class= "link">
+<?php echo $html->link("新規登録",'/users/add');
+?>
+</div>
+<!--<div id ="content">
+
+<form action="../../cake/users/login" method="post">
+
+<label>ユーザー名</label>
+	<input type="text" name="username" size="40" />
+
+<label>パスワード</label>
+	<input type="password" name="password" size="40" />
+	
+
+<button type ="submit"/>ログインする</button>-->
+</form>
+<?php  echo $session->flash('auth');?>
+</div>
+<?php echo $this->element('footer'); ?>

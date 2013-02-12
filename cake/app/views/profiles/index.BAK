@@ -1,0 +1,72 @@
+
+<?php echo $this->element('header'); ?>
+<?php echo $html->css('profile_index'); ?>
+
+
+<div class ="box">	
+<div class="pic">
+
+<?php  if(empty($profile['User']['pic'])){$profile['User']['pic']="nophoto.jpg";}?>
+
+<img src='/cake/img/pics/<?php echo $profile['User']['pic'];?>' alt='プロフィール写真' width="128" height="128">
+</div>
+
+<div class ="name">名前：<?php echo $profile['User']['username']; ?>
+</div>
+
+<div class ="intro">自己紹介
+		<?php 
+				$res = str_replace("\n","<br>",$profile['Profile']['intro']);
+				echo  $res; ?>
+</div>
+
+<div class ="place">	
+場所	
+
+					<?php echo $profile['Profile']['place']; ?>
+</div>
+<div class ="link">	
+	<a href ="<?php echo $profile['Profile']['link']; ?>"><?php echo $profile['Profile']['link']; ?></a>
+</div>
+<?php //echo $this->Html->link('メッセージを送る','/messages/edit/ echo $data['Profile']['user_id']; ?>
+
+<?php if($userinfo['User']['id']!==$profile['Profile']['user_id']){
+		echo $html->link('メッセージを送る', array(
+		    									  'controller'=>'message',
+												  'action' => 'edit',
+		    									  $profile['Profile']['user_id'])
+);} ?>
+<?php if(!empty($userinfo)&&$userinfo['User']['id']!==$profile['Profile']['user_id']&&$states==0){
+		//ログイン中かつ本人ではないかつ友達でない
+		echo $form->create('Friend',array('url'=>
+										array(
+												  'controller'=>'friends',
+												  'action'=>'apply',
+													$profile['Profile']['user_id']
+										)
+									)
+					);
+	$msg = __('申請しますか？', true);
+	echo $form->submit(__('友達申請する', true), array('name'=>'hoge', 'onClick'=>"return confirm('$msg')"));
+
+
+	
+	////	echo $form->submit("友達申請する");
+		echo $form->end();
+	
+		}	echo $states;
+		if(!empty($userinfo)&&$userinfo['User']['id']!==$profile['Profile']['user_id']&&$states==1){
+		echo "友達<br>";
+		}
+		if(!empty($userinfo)&&$userinfo['User']['id']!==$profile['Profile']['user_id']&&$states==2){
+		echo "友達申請済み<br>";
+		}
+		if(!empty($userinfo)&&$userinfo['User']['id']!==$profile['Profile']['user_id']&&$states==3){
+		echo "友達申請が来ています<br>";
+		}
+
+?>
+<?php
+echo $html->link('戻る','/boards');?>
+</div>
+<?php echo $this->element('footer'); ?>

@@ -1,0 +1,27 @@
+.box{
+	width : 617px;
+	display:block;
+	float:left;
+	margin-bottom:20px;
+	padding-bottom: 20px;
+	border-bottom: solid #cccccc 1px;
+}
+.pic{
+	float:left;
+	margin-right:10px;
+}
+.name{
+
+	font-weight: 600; 
+
+}
+.body{
+	margin-left:138px;
+	width :475px;
+}
+.date{
+	margin-left:138px;
+}
+.box .submit{
+	margin-left:138px;
+}

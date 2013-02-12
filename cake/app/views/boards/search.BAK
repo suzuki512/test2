@@ -1,0 +1,154 @@
+<?php echo $this->element('header'); ?>
+
+  
+
+	  
+<?php echo $this->Html->css('board_index');?>
+<?php foreach ($data as $val): ?>
+  
+    <div class='part'>
+	<div class='id'>
+		<?php echo $val['Board']['id']; ?>
+	</div>
+	<div class='name'>    
+		<?php echo $val['User']['username']; ?>
+    </div>
+	<div class='date'>
+		<?php echo $val['Board']['date']; ?>
+	</div> 
+	<div class="body"><?php  
+					$photo='<img src="http://localhost/img001.gif"width=50 height=50>';
+					$search=array("\n",'img');
+					$replace=array("<br>","$photo");
+					$res = str_replace($search,$replace,$val['Board']['body']);
+					echo  $res; 
+					
+				   ?></div>
+	</div>
+
+
+
+
+ 
+<?php endforeach; ?>
+</table>
+  <div class='clear'>
+
+<?php if(!empty($error)&&$error==true){ echo"該当する投稿はありません";}?></br>
+
+<?php 
+	$username = $this->Session->read('User.username');
+  	$id = $this->Session->read('User.id');
+	echo "$id,$username".'さん';
+?>
+
+
+<div class="text">
+<?php 
+	echo $form->create("",array('type'=>'post','action'=>'/insert'));
+	echo $form->textarea("body",array('rows'=>10,'cols'=>40));
+	echo $form->end("送信");
+?>
+
+
+
+</div>
+
+<div class="text">
+<?php 
+	echo $form->create("",array('type'=>'post','action'=>'/search'));
+	echo $form->text("search");
+	echo $form->end("検索");
+?>
+</div>
+
+<div class="text">
+<?php 
+	echo $form->create("",array('type'=>'post','action'=>'/usersearch'));
+	echo $form->text("usersearch");
+	echo $form->end("ユーザー検索");
+?>
+</div>
+
+
+
+  
+<a href= "http://localhost/cake/users">ログアウト</a></br>
+		
+ <?php echo $paginator->next('<<前の100件へ');?>
+	    <?php echo $paginator->prev('次の100件へ>>');?><br>
+</div>
+<?php echo $html->link('戻る','/boards/index');?>
+    <div class='part'>
+	<div class='id'>
+		<?php echo $val['Board']['id']; ?>
+	</div>
+	<div class='name'>    
+		<?php echo $val['User']['username']; ?>
+    </div>
+	<div class='date'>
+		<?php echo $val['Board']['date']; ?>
+	</div> 
+	<div class="body"><?php  
+					$photo='<img src="http://localhost/img001.gif"width=50 height=50>';
+					$search=array("\n",'img');
+					$replace=array("<br>","$photo");
+					$res = str_replace($search,$replace,$val['Board']['body']);
+					echo  $res; 
+					
+				   ?></div>
+	</div>
+
+
+
+
+ 
+<?php endforeach; ?>
+</table>
+  <div class='clear'>
+
+<?php if(!empty($error)&&$error==true){ echo"該当する投稿はありません";}?></br>
+
+<?php 
+	$username = $this->Session->read('User.username');
+  	$id = $this->Session->read('User.id');
+	echo "$id,$username".'さん';
+?>
+
+
+<div class="text">
+<?php 
+	echo $form->create("",array('type'=>'post','action'=>'/insert'));
+	echo $form->textarea("body",array('rows'=>10,'cols'=>40));
+	echo $form->end("送信");
+?>
+
+
+
+</div>
+
+<div class="text">
+<?php 
+	echo $form->create("",array('type'=>'post','action'=>'/search'));
+	echo $form->text("search");
+	echo $form->end("検索");
+?>
+</div>
+
+<div class="text">
+<?php 
+	echo $form->create("",array('type'=>'post','action'=>'/usersearch'));
+	echo $form->text("usersearch");
+	echo $form->end("ユーザー検索");
+?>
+</div>
+
+
+
+  
+<a href= "http://localhost/cake/users">ログアウト</a></br>
+		
+ <?php echo $paginator->next('<<前の100件へ');?>
+	    <?php echo $paginator->prev('次の100件へ>>');?><br>
+</div>
+<?php echo $html->link('戻る','/boards/index');?>

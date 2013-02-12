@@ -1,0 +1,48 @@
+.box{	
+	margin-left:164px;
+	width:500px;
+}
+
+       
+label{	
+	display:block;
+	float:left;
+	text-align:right;
+	width:154px;
+	font-weight:bold;
+
+}
+.box input {
+	float:left;
+    width:300px;
+    padding:4px 2px;
+    font-weight:bold;
+    margin:2px 0 10px 10px;
+
+}
+
+h2{
+	margin-left:164px;
+	margin-bottom:20px;
+	border-bottom:1px solid #c0c0c0;
+}
+.box .submit input {
+	width:150px;
+    padding:3px 2px;
+    font-weight:bold;
+    margin:2px 0 20px 163px;
+}
+div.link{
+	clear:left;
+    width:100px;
+    padding:3px 2px;
+    font-weight:bold;
+    margin:2px 0 20px 164px;
+}
+.box .error-message{
+	clear:left;
+	margin-left:164px;
+	color:#FF0000;
+	font-weight: 600;
+}
+	
